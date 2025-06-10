@@ -59,10 +59,6 @@ export async function getProject(projectId) {
     where: { clerkUserId: userId },
   });
 
-  if (!user) {
-    throw new Error("User not found");
-  }
-
   // Get project with sprints and organization
   const project = await db.project.findUnique({
     where: { id: projectId },

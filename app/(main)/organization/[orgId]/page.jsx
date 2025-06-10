@@ -3,7 +3,7 @@ import OrgSwitcher from "@/components/org-switcher";
 import ProjectList from "./_components/project-list";
 
 export default async function page({params}) {
-    const {orgId} = params;
+    const {orgId} = await params;
     const organization = await  getOrganization(orgId);
     console.log("MyOrg",organization)
 
