@@ -62,9 +62,14 @@ export async function getProjects(orgId) {
 }
 
 export async function getUserIssues(userId) {
-  const { orgId } = auth();
+ 
+  
+    const { sessionClaims } = await auth();
+  const orgId = sessionClaims?.o?.id;
+  const orgRole = sessionClaims?.o?.rol;
+   console.log("SERVER LORA MAWA",orgId)
 
-  if (!userId || !orgId) {
+  if (!userId) {
     throw new Error("No user id or organization id found");
   }
 
